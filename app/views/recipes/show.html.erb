@@ -22,5 +22,20 @@
       <button class="text-center py-1 px-2 border-solid border-black border-2">Add Ingredient</button>
     </a>
   </div>
-  
+  <section>
+    <table>
+      <thead>
+          <tr>
+            <th>Food</th>
+            <th>Measurement Unit</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'shared/table', collection: @recipe.recipe_foods, as: :item %>
+      </tbody>
+    </table>
+  </section>
 </div>
