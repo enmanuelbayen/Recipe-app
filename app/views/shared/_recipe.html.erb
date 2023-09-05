@@ -2,31 +2,12 @@
   <h2><%= recipe.name %></h2>
 
   <div>
-    <h3>Preparation time:</h3>
-    <%= recipe.preparation_time %>
-  </div>
-
-  <div>
-    <h3>Cooking time:</h3>
-    <%= recipe.cooking_time %>
-  </div>
-
-  <div>
     <h3>Description:</h3>
     <%= recipe.description %>
   </div>
 
   <div>
-    <h3>Public:</h3>
-    <%= recipe.public %>
-  </div>
-
-  <div>
-    <h3>User:</h3>
-    <%= recipe.user_id %>
-  </div>
-
-  <div>
     <%= link_to "Show this recipe", recipe %>
   </div>
+  <%= button_to "Remove the recipe", recipe, method: :delete %>
 </li>
