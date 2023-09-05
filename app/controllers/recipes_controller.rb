@@ -5,8 +5,14 @@ class RecipesController < ApplicationController
 
   def show; end
 
-  def create
+  
+  def new
     @recipe = Recipe.new
+    @user = current_user
+  end
+
+  def create
+    @recipe = Recipe.new(recipe_params)
 
     respond_to do |format|
       if @recipe.save
@@ -17,16 +23,19 @@ class RecipesController < ApplicationController
     end
   end
 
-  def new
-    @recipe = Recipe.new
-  end
-
   def destroy
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
 
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: "Recipe was successfully destroyed." }
     end
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 
 end

@@ -1,4 +1,6 @@
+<%= render partial: "shared/recipe", locals: { recipe: @recipe } %>
+
 <div>
-  <h1 class="font-bold text-4xl">Recipes#show</h1>
-  <p>Find me in app/views/recipes/show.html.erb</p>
+  <%= link_to "Back to recipes", recipes_path %>
+  <%= button_to "Remove the recipe", @recipe, method: :delete %>
 </div>

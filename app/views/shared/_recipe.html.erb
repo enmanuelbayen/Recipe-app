@@ -1,35 +1,32 @@
 <li>
-  <p>
-    <h3>Name:</h3>
-    <%= recipe.name %>
-  </p>
+  <h2><%= recipe.name %></h2>
 
-  <p>
+  <div>
     <h3>Preparation time:</h3>
     <%= recipe.preparation_time %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <h3>Cooking time:</h3>
     <%= recipe.cooking_time %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <h3>Description:</h3>
     <%= recipe.description %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <h3>Public:</h3>
     <%= recipe.public %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <h3>User:</h3>
     <%= recipe.user_id %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <%= link_to "Show this recipe", recipe %>
-  </p>
+  </div>
 </li>
