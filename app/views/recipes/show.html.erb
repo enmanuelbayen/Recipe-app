@@ -18,10 +18,11 @@
     <a href="<%= url_for(action: 'index', controller: 'general_shopping_list') %>">
       <button class="text-center py-1 px-2 border-solid border-black border-2">Generate Shopping List</button>
     </a>
-    <a href="#">
+    <a href="<%= new_recipe_recipe_food_path(@recipe) %>">
       <button class="text-center py-1 px-2 border-solid border-black border-2">Add Ingredient</button>
     </a>
   </div>
+
   <section>
     <table>
       <thead>

@@ -9,6 +9,23 @@ class RecipeFoodsController < ApplicationController
         @recipe_food = RecipeFood.find(params[:id])
     end
 
+    def new
+        @recipe_food = RecipeFood.new
+        @foods = current_user.foods
+    end
+
+    def create
+        @recipe_food = RecipeFood.new(recipe_id: params[:recipe_id], **recipe_food_params)
+
+        if @recipe_food.save
+            flash[:notice] = 'Recipe food created successfully added'
+            redirect_to recipe_path(params[:recipe_id])
+        else
+            flash.now[:error] = 'Failed to create the post.'
+            render :new
+        end
+    end
+
     def update
         @recipe_food = RecipeFood.find(params[:id])
         if @recipe_food.update(update_recipe_food_params)
@@ -23,5 +40,9 @@ class RecipeFoodsController < ApplicationController
 
     def update_recipe_food_params
         params.require(:recipe_food).permit(:quantity)
+    end
+
+    def recipe_food_params
+        params.require(:recipe_food).permit(:quantity, :food_id)
     end
 end
