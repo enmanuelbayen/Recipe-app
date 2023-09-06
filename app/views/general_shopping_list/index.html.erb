@@ -1,4 +1,27 @@
-<div>
-  <h1 class="font-bold text-4xl">GeneralShoppingList#index</h1>
-  <p>Find me in app/views/general_shopping_list/index.html.erb</p>
+<div class="w-full">
+  <h1 class="font-bold text-4xl text-center mb-8">General Shopping List</h1>
+  <div class="text-center flex justify-around">
+    <p>Amount of food items to buy: </p>
+    <p>Total value of food needed: </p>
+  </div>
+  <section class="flex justify-center mt-4">
+    <table>
+      <thead>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @recipes.each do |recipe_food| %>
+          <tr>
+            <td><%= recipe_food.food_id %></td>
+            <td class=""> <%= recipe_food.quantity %> </td>
+            <td class=""> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
 </div>
