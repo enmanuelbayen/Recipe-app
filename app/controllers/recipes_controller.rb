@@ -22,6 +22,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def public_recipes
+    # @recipes = Recipe.where(public: true) # Filter for public recipes
+    @public_recipes = Recipe.includes(:recipe_foods, recipe_foods: :food).where(public: true)
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
