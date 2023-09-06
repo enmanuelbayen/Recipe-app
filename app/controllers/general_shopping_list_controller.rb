@@ -1,8 +1,6 @@
 class GeneralShoppingListController < ApplicationController
   def index
-    @user = current_user
-    @recipes = current_user.recipes.joins(:recipe_foods).select('recipe_foods.*')
-
-
+    @recipes_foods = current_user.recipes.joins(:recipe_foods).select('recipe_foods.*')
+    @user_foods =  current_user.foods
   end
 end
