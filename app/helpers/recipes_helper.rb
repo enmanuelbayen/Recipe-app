@@ -1,5 +1,5 @@
 module RecipesHelper
-      def total_price(recipe_foods)
+  def total_price(recipe_foods)
     total_price = 0
 
     recipe_foods.each do |recipe_food|
