@@ -3,11 +3,8 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
+  def show; end
 
-  
   def new
     @recipe = Recipe.new
     @user = current_user
@@ -18,7 +15,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -30,7 +27,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: "Recipe was successfully destroyed." }
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
     end
   end
 
@@ -39,5 +36,4 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
-
 end
