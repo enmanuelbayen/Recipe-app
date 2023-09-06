@@ -9,14 +9,13 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    
+
     if @recipe.update(update_public_recipe_params)
       flash[:notice] = 'This recipe public state has been updated'
-      redirect_to @recipe
     else
       flash[:alert] = 'Failed to update the public state of this recipe'
-      redirect_to @recipe
     end
+    redirect_to @recipe
   end
 
   def new
