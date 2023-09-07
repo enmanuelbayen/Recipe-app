@@ -3,8 +3,11 @@ require './spec/rails_helper'
 RSpec.describe RecipeFood, type: :model do
   let(:user) { User.create(name: 'John') }
   let(:food) { Food.create(name: 'Apple', measurement_unit: 'Piece', price: 1.99, quantity: 10) }
-  let(:recipe) { Recipe.create(name: 'Apple Pie', preparation_time: 30, cooking_time: 60, description: 'Delicious apple pie recipe', user_id: user, public: true)  }
-  subject { RecipeFood.new(food: food, recipe: recipe, quantity: 2) }
+  let(:recipe) do
+    Recipe.create(name: 'Apple Pie', preparation_time: 30, cooking_time: 60, description: 'Delicious apple pie recipe',
+                  user_id: user, public: true)
+  end
+  subject { RecipeFood.new(food:, recipe:, quantity: 2) }
 
   context 'Validation' do
     it 'should be valid with valid attributes' do
