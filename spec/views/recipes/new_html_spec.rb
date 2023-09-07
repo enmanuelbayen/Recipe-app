@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe 'Create a Recipe', type: :system do
   describe 'New recipe form' do
     let!(:user) do
