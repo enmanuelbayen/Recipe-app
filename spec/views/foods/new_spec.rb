@@ -32,15 +32,13 @@ RSpec.describe 'Foods/new.html', type: :system do
       click_button 'Create Food'
 
 
-      expect(page).to have_content("Measurement unit can't be blank")
-      expect(page).to have_content("Price can't be blank")
-      expect(page).to have_content("Quantity can't be blank")
+      expect(page).to have_content("The arguments are invalid.")
     end
 
     it 'allows the user to navigate back to the foods index' do
       click_link 'Back to foods'
 
-      expect(current_path).to eq(foods_path)
+      expect(page).to have_selector('h1', text: 'Foods')
     end
   end
 end

@@ -1,6 +1,37 @@
 require 'rails_helper'
 
+RSpec.describe 'Foods/index', type: :system do
+    describe 'index page' do 
+        let!(:user) do
+            User.create(name: 'John', email: 'luis@gmail.com', password: 'password', password_confirmation: 'password')
+        end
 
-RSpec.describe 'Food/index', type: :system do
+        let!(:food1) do
+            Food.create(user_id: user.id, name: 'banana', measurement_unit: 'kilos', price: 100, quantity: 45)
+        end
+        
+        let!(:food2) do
+        Food.create(user_id: user.id, name: 'cambur', measurement_unit: 'kilos', price: 10, quantity: 5)
+        end
+        
+        before do
+            sign_in user
+            visit foods_path
+        end
 
+    it 'displays a list of foods' do
+        expect(page).to have_content('Foods')
+        
+        expect(page).to have_content(food1.name)
+        expect(page).to have_content(food2.name)
+    end
+
+    it 'Display button remove' do
+        expect(page).to have_button('Remove')
+    end
+
+    it 'Check correct url' do
+        expect(page).to have_link('New food', href: new_food_path)
+    end
+  end
 end
