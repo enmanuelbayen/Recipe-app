@@ -30,11 +30,6 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 
-module GenerateMissingFoodsHelper
-  def generate_missing_foods(user_foods, recipes_foods)
-  end
-end
-
 RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :system
   config.include GenerateMissingFoodsHelper, type: :system
