@@ -29,7 +29,15 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
+module GenerateMissingFoodsHelper
+  def generate_missing_foods(user_foods, recipes_foods)
+  end
+end
+
 RSpec.configure do |config|
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include GenerateMissingFoodsHelper, type: :system
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
