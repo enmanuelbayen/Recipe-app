@@ -2,7 +2,7 @@ require './spec/rails_helper'
 
 RSpec.describe Food, type: :model do
   let(:user) { User.create(name: 'John') }
-  subject { Food.new(name: 'Apple', measurement_unit: 'Piece', price: 1.99, quantity: 10, user: user) }
+  subject { Food.new(name: 'Apple', measurement_unit: 'Piece', price: 1.99, quantity: 10, user:) }
 
   context 'Validation' do
     it 'should be valid with valid attributes' do
