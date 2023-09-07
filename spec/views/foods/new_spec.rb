@@ -31,8 +31,7 @@ RSpec.describe 'Foods/new.html', type: :system do
     it 'displays validation errors if form is submitted with invalid data' do
       click_button 'Create Food'
 
-
-      expect(page).to have_content("The arguments are invalid.")
+      expect(page).to have_content('The arguments are invalid.')
     end
 
     it 'allows the user to navigate back to the foods index' do
