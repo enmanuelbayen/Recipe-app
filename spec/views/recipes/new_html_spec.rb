@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe 'Create a Recipe', type: :system do
   describe 'New recipe form' do
     let!(:user) do
-        User.create(name: 'John', email: 'luis@gmail.com', password: 'password', password_confirmation: 'password')
+      User.create(name: 'John', email: 'luis@gmail.com', password: 'password', password_confirmation: 'password')
     end
 
     before do

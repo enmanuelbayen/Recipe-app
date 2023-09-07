@@ -7,7 +7,8 @@ RSpec.describe 'recipes/show', type: :system do
     end
 
     let!(:recipe) do
-      Recipe.create(user_id: user.id, name: 'cafe', preparation_time: 1.5, cooking_time: 1, description: 'hola', public: 1)
+      Recipe.create(user_id: user.id, name: 'cafe', preparation_time: 1.5, cooking_time: 1, description: 'hola',
+                    public: 1)
     end
 
     before do
